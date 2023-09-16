@@ -1,3 +1,9 @@
+//
+// Copyright (C) 2023 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
 soong_config_module_type {
     name: "ufsbsg_cc_defaults",
     module_type: "cc_defaults",
@@ -16,14 +22,14 @@ ufsbsg_cc_defaults {
     soong_config_variables: {
         ufsframework: {
             bsg : {
-               cflags : ["-D_BSG_FRAMEWORK_KERNEL_HEADERS"],
+                cflags : ["-D_BSG_FRAMEWORK_KERNEL_HEADERS"],
             },
         },
      },
 }
 
 cc_library {
-    name: "libgptutils.xiaomi_sm8450",
+    name: "libgptutils.xiaomi_sm8550",
     vendor: true,
     recovery_available: true,
     defaults: ["ufsbsg_defaults"],
@@ -32,9 +38,9 @@ cc_library {
         "recovery-ufs-bsg.cpp",
     ],
     shared_libs: [
-            "libcutils",
-            "liblog",
-            "libz",
+        "libcutils",
+        "liblog",
+        "libz",
     ],
     cflags: [
         "-Wall",
@@ -46,7 +52,7 @@ cc_library {
     owner: "qti",
     export_include_dirs: ["."],
     header_libs: [
-            "qti_kernel_headers",
-            "device_kernel_headers",
+        "qti_kernel_headers",
+        "device_kernel_headers",
     ],
 }

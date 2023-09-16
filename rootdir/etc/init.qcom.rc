@@ -24,6 +24,40 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
+# Changes from Qualcomm Innovation Center are provided under the following
+# license:
+#
+# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted (subject to the limitations in the
+# disclaimer below) provided that the following conditions are met:
+#
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#
+#     * Neither the name of Qualcomm Innovation Center, Inc. nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE
+# GRANTED BY THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT
+# HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+# IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+# ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+# GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+# IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import /vendor/etc/init/hw/init.qti.ufs.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
@@ -77,6 +111,8 @@ on early-boot
     exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.qti.can.sh
     setprop ro.sf.lcd_density ${vendor.display.lcd_density}
     setprop vendor.display.mixer_resolution ${persist.sys.miui_resolution}
+    mkdir /data/vendor/modem 0777 root root
+    mkdir /data/vendor/modem/diag_logs 0777 root root
 
     chown system system /mnt/vendor/persist/data/pfm/licenses
     chmod 0775 /mnt/vendor/persist/data/pfm/licenses
@@ -122,10 +158,6 @@ on boot
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
     chown media audio /sys/kernel/snd_card/card_state
-
-    # modem
-    chmod 0777 /dev/smd8
-    chown radio radio /dev/smd8
 
     # This location is used by QCRIL to host UNIX domain
     # socket files used for internal IPC within QCRIL
@@ -173,7 +205,9 @@ on boot
     # bond0 used by FST Manager
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
-    # Allow access to dload sysfs node
+    # Allow access to emmc rawdump block partition and dload sysfs node
+    chown root system /dev/block/bootdevice/by-name/rawdump
+    chmod 0660 /dev/block/bootdevice/by-name/rawdump
     chown root system /sys/kernel/dload/emmc_dload
     chmod 0660 /sys/kernel/dload/emmc_dload
     chown root system /dev/block/bootdevice/by-name/ramdump
@@ -185,6 +219,16 @@ on boot
     chmod 0640 /sys/module/msm_drm/parameters/dsi_display0
     chown root graphics /sys/module/msm_drm/parameters/dsi_display1
     chmod 0640 /sys/module/msm_drm/parameters/dsi_display1
+
+    chown root system /sys/kernel/qts/primary/trusted_touch_enable
+    chown root system /sys/kernel/qts/primary/trusted_touch_event
+    chown root system /sys/kernel/qts/primary/trusted_touch_type
+    chown root system /sys/kernel/qts/primary/trusted_touch_device_path
+
+    chown root system /sys/kernel/qts/secondary/trusted_touch_enable
+    chown root system /sys/kernel/qts/secondary/trusted_touch_event
+    chown root system /sys/kernel/qts/secondary/trusted_touch_type
+    chown root system /sys/kernel/qts/secondary/trusted_touch_device_path
 
     chown system system /sys/class/backlight/panel0-backlight/brightness
     chown system system /sys/class/backlight/panel0-backlight/max_brightness
@@ -215,11 +259,6 @@ on boot
 
     # limit discard size to 128MB in order to avoid long IO latency
     write /sys/block/sda/queue/discard_max_bytes 134217728
-	
-    #modify permission of block_size node
-    #chown -h root.oem_2902 /sys/bus/coresight/devices/coresight-tmc-etr/block_size
-    chown -h vendor_qdss /sys/bus/coresight/devices/coresight-tmc-etr/block_size
-    chmod 660 /sys/bus/coresight/devices/coresight-tmc-etr/block_size
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -252,6 +291,12 @@ on post-fs-data
     chmod 0666 /dev/camlog
 
 
+    #logturbo
+    chmod 0666 /dev/mi_exception_log
+    chown system system /proc/mi_log/binder_delay
+    chown system system /proc/mi_log/delay
+
+
     #Create directory for tftp
     mkdir /data/vendor/tombstones 0771 system system
     mkdir /data/vendor/tombstones/rfs 0771 system system
@@ -269,7 +314,6 @@ on post-fs-data
     mkdir /data/vendor/wifi/wigig_hostapd 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
-    mkdir /data/vendor/mac_addr 0770 system wifi
 
     # Create the directories used by WiGig Sensing
     mkdir /data/vendor/sensing 0770 system wifi
@@ -279,7 +323,8 @@ on post-fs-data
     chown radio radio /data/vendor/connectivity
 
     # Create directory used by audio subsystem
-    mkdir /data/vendor/audio 0777 audio audio
+    mkdir /data/vendor/audio 0770 audio audio
+    mkdir /data/vendor/audio_dsp 0770 media media
 
     # Create directory for audio delta files
     mkdir /data/vendor/audio/acdbdata 0770 media audio
@@ -310,6 +355,16 @@ on post-fs-data
 
     #Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
     #symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
+
+    #Create directories for Location services
+    mkdir /data/vendor/location 0770 gps gps
+    mkdir /data/vendor/location/mq 0770 gps gps
+    mkdir /data/vendor/location/xtwifi 0770 gps gps
+    mkdir /dev/socket/location 0770 gps gps
+    mkdir /dev/socket/location/mq 0770 gps gps
+    mkdir /dev/socket/location/xtra 0770 gps gps
+    mkdir /dev/socket/location/ehub 0770 gps gps
+    mkdir /dev/socket/location/dgnss 0770 gps gps
 
     #Create directories for wifihal services
     mkdir /dev/socket/wifihal 0770 wifi wifi
@@ -416,12 +471,11 @@ service vendor.ssr_setup /system/vendor/bin/ssr_setup
     oneshot
     disabled
 
-service vendor.ss_ramdump /vendor/bin/subsystem_ramdump
+service vendor.ss_ramdump /vendor/bin/subsystem_ramdump 3
     class main
     user system
     group system root media_rw everybody
     capabilities NET_ADMIN
-    group system
     ioprio rt 4
     disabled
 
@@ -450,17 +504,12 @@ on property:persist.sys.pil_proxy_timeout=*
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
 
 on property:persist.vendor.ssr.restart_level=*
-    write /sys/class/remoteproc/remoteproc4/recovery enabled
     start vendor.ssr_setup
 
 on property:persist.vendor.ssr.enable_ramdumps=1
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
     write /sys/module/qcom_ramdump/parameters/enable_dump_collection 1
-    write /sys/class/remoteproc/remoteproc4/coredump enabled
-    write /sys/class/remoteproc/remoteproc3/coredump enabled
-    write /sys/class/remoteproc/remoteproc2/coredump enabled
     mkdir /data/vendor/ramdump_ssr 770 system system
-    #setprop persist.vendor.ssr.restart_level ALL_ENABLE
     start vendor.ss_ramdump
 
 on property:persist.vendor.ssr.enable_ramdumps=0
@@ -491,6 +540,8 @@ on property:sys.boot_completed=1
     setprop lmkd.reinit 1
     chown media audio /sys/kernel/aud_dev/state
     write /sys/devices/virtual/cvp/cvp/boot 1
+    write /dev/kmsg "start qrtr-lookup after Boot completed "
+    start qrtr-lookup
 
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
@@ -682,6 +733,11 @@ service mlid /vendor/bin/mlid
     group gps
     socket mlid stream 0666 gps gps
 
+service loc_launcher /system/vendor/bin/loc_launcher
+    class late_start
+    user gps
+    group gps
+
 service qcom-sh /vendor/bin/init.qcom.sh
     class late_start
     user root
@@ -722,7 +778,6 @@ service wifi-crda /vendor/bin/init.crda.sh
 on property:sys.boot_completed=1
     start qcom-post-boot
     start qti-testscripts
-    start qrtr-lookup
 
 on property:ro.vendor.ril.mbn_copy_completed=1
     write /data/vendor/radio/copy_complete 1
@@ -770,66 +825,44 @@ service profiler_daemon /system/bin/profiler_daemon
     group root
     disabled
 
-service charger /system/bin/charger
-    class charger
-    user system
-    group system graphics input
-    capabilities SYS_BOOT
-    seclabel u:r:charger:s0
-
 service vendor.ssr_diag /system/vendor/bin/ssr_diag
     class late_start
     user system
     group system
     disabled
 
-service diag_mdlog_start /vendor/bin/diag_mdlog -q 0x2006 -j 1 -u -c -i -n 20 -s 300
+service diag_mdlog_start /vendor/bin/diag_mdlog -q 0x2006 -j 1 -u -c -i -n 50
     class late_start
     user shell
     group system oem_2902 oem_2905 sdcard_rw sdcard_r media_rw
     disabled
     oneshot
 
-service diag_mdlog_stop /vendor/bin/diag_mdlog -k
+service vendor.diag.tcpdump /vendor/bin/tcpdump -i any -W 3 -C 5 -s 134 -w /data/vendor/modem/diag_logs/tcpdump.pcap -Z system --time-interval 11
+    class main
+    user root
+    group root wifi
+    disabled
+    oneshot
+
+on property:persist.logd.diag.tcpdump=true
+    start vendor.diag.tcpdump
+
+on property:persist.logd.diag.tcpdump=false
+    stop vendor.diag.tcpdump
+
+on boot && property:persist.logd.diag.bootup=* && property:persist.logd.diag.networklog=*
+    start vendor.diag.tcpdump
+
+on boot && property:persist.logd.diag.bootup=* && property:persist.logd.diag.mobilelog=*
+    start logcatlog
+
+service diag_mdlog_stop /system/vendor/bin/diag_mdlog -k
     class late_start
     user shell
     group system oem_2902 oem_2905 sdcard_rw sdcard_r media_rw
     disabled
     oneshot
-
-service diag_mdlog_auto_start /vendor/bin/diag_mdlog -c -n 50
-    class late_start
-    user system
-    group system oem_2902 oem_2905 sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
-
-service diag_mdlog_auto_stop /vendor/bin/diag_mdlog -k
-    class late_start
-    user system
-    group system oem_2902 oem_2905 sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
-    
-on property:persist.vendor.radio.diag_log_trriger=modem
-    setprop debug.offline_log.enable true
-    setprop debug.offline_log.module ${persist.vendor.radio.diag_log_trriger}
-    start diag_mdlog_start
-
-on property:persist.vendor.radio.diag_log_trriger=audio
-    setprop debug.offline_log.enable true
-    setprop debug.offline_log.module ${persist.vendor.radio.diag_log_trriger}
-    start diag_mdlog_start
-
-on property:persist.vendor.radio.diag_log_trriger=gps
-    setprop debug.offline_log.enable true
-    setprop debug.offline_log.module ${persist.vendor.radio.diag_log_trriger}
-    start diag_mdlog_start
-
-on property:persist.vendor.radio.diag_log_trriger=sensor
-    setprop debug.offline_log.enable true
-    setprop debug.offline_log.module ${persist.vendor.radio.diag_log_trriger}
-    start diag_mdlog_start
 
 service qlogd /system/xbin/qlogd
     socket qlogd stream 0662 system system
@@ -892,8 +925,6 @@ service esepmdaemon /system/vendor/bin/esepmdaemon
 on charger
     setprop persist.sys.usb.config mass_storage
     start qcom-post-boot
-    chown system system /sys/class/backlight/panel0-backlight/brightness
-    chown system system /sys/class/backlight/panel1-backlight/brightness
 
 #add poweroffhandler
 service poweroffhandler /system/vendor/bin/poweroffhandler
@@ -957,9 +988,12 @@ on property:sys.boot_completed=1 && property:ro.product.debugfs_restrictions.ena
    property:persist.dbg.keep_debugfs_mounted="" && property:ro.debuggable="1"
    setprop persist.dbg.keep_debugfs_mounted 1
 
+on late-init && property:ro.build.type=user && property:ro.debuggable="1"
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
+
 on property:sys.boot_completed=1 && property:ro.build.type=user && property:ro.debuggable="1"
-   mount debugfs debugfs /sys/kernel/debug
-   chmod 0755 /sys/kernel/debug
+   chmod 0755 /sys/kernel/tracing
 
     # cooling device used to set 4Rx or 2Rx
     chmod 0666 /sys/class/thermal/cooling_device39/cur_state
@@ -981,4 +1015,3 @@ service qrtr-lookup /vendor/bin/qrtr-lookup
     group system
     disabled
     oneshot
-

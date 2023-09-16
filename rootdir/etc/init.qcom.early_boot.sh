@@ -68,32 +68,22 @@ else
     log -t DRM_BOOT -p w "file: '$vbfile' or perms doesn't exist"
 fi
 
-
 function set_density_by_fb() {
+    project=`getprop ro.build.product`
     #put default density based on width
     if [ -z $fb_width ]; then
-        project=`getprop ro.build.product`
         case "$project" in
-            "cupid")
+            "fuxi")
             setprop vendor.display.lcd_density 440
             ;;
-            "zeus")
+            "nuwa")
             setprop vendor.display.lcd_density 560
             ;;
-            "zizhan")
-            setprop vendor.display.lcd_density 440
-            ;;
-            "unicorn")
+            "socrates")
             setprop vendor.display.lcd_density 560
-            ;;
-            "mayfly")
-            setprop vendor.display.lcd_density 440
-            ;;
-            "ziyi")
-            setprop vendor.display.lcd_density 440
             ;;
             *)
-            setprop vendor.display.lcd_density 480
+            setprop vendor.display.lcd_density 440
             ;;
         esac
     else
@@ -110,29 +100,8 @@ function set_density_by_fb() {
         else
             setprop vendor.display.lcd_density 160
         fi
-        project=`getprop ro.build.product`
         case "$project" in
-            "ingres")
-            factorybuild=`getprop ro.boot.factorybuild`
-            if [ $factorybuild -ge 1 ]; then
-                setprop vendor.display.lcd_density 480
-            else
-                setprop vendor.display.lcd_density 440
-            fi
-            ;;
-            "zizhan")
-            setprop vendor.display.lcd_density 440
-            ;;
-            "cupid")
-            setprop vendor.display.lcd_density 440
-            ;;
-            "diting")
-            setprop vendor.display.lcd_density 480
-            ;;
-            "mayfly")
-            setprop vendor.display.lcd_density 440
-            ;;
-            "ziyi")
+            "fuxi")
             setprop vendor.display.lcd_density 440
             ;;
         esac
