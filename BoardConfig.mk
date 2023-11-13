@@ -73,6 +73,15 @@ BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbo.img
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(CONFIGS_PATH)/config/config.fs
 
+# HIDL
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
+DEVICE_MANIFEST_SKUS := kalama
+DEVICE_MANIFEST_KALAMA_FILES := \
+    $(DEVICE_PATH)/configs/hidl/manifest_kalama.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
+    $(DEVICE_PATH)/configs/hidl/framework_compatibility_matrix.xml \
+    $(DEVICE_PATH)/configs/hidl/xiaomi_framework_compatibility_matrix.xml
+
 # Kernel
 BOARD_KERNEL_PAGESIZE   := 4096
 BOARD_KERNEL_BASE       := 0x00000000
@@ -237,15 +246,6 @@ BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
-
-# VINTF
-DEVICE_MATRIX_FILE := $(CONFIGS_PATH)/vintf/compatibility_matrix.xml
-DEVICE_MANIFEST_SKUS := kalama
-DEVICE_MANIFEST_KALAMA_FILES := \
-    $(CONFIGS_PATH)/vintf/manifest_kalama.xml
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    $(CONFIGS_PATH)/vintf/compatibility_matrix.device.xml \
-    $(CONFIGS_PATH)/vintf/xiaomi_framework_compatibility_matrix.xml
 
 # VNDK
 BOARD_VNDK_VERSION := current
