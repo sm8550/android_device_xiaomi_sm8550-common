@@ -65,9 +65,6 @@ TARGET_BOOTLOADER_BOARD_NAME := kalama
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
-# Display
-TARGET_SCREEN_DENSITY := 400
-
 # DTB and DTBO
 BOARD_USES_DT := true
 BOARD_PREBUILT_DTBIMAGE_DIR := $(KERNEL_PATH)/dtbs
@@ -212,6 +209,9 @@ ENABLE_VENDOR_RIL_SERVICE := true
 
 # Vendor Boot
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
+
+# Screen density
+TARGET_SCREEN_DENSITY := 560
 
 # System As Root
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
