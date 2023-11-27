@@ -258,15 +258,16 @@ persist.vendor.dpm.vndr.feature=11
 drm.service.enabled=true
 
 # Fingerprint
-persist.vendor.sys.fp.dump_data=0
-persist.vendor.sys.fp.expolevel=0x88
-persist.vendor.sys.fp.fod.location.X_Y=442,2052
-persist.vendor.sys.fp.fod.size.width_height=196,196
-ro.hardware.fp.fod.location=low
-ro.hardware.fp.fod.lowlight.brightness.threshold=411
-ro.hardware.fp.fod.lowlight.lux.threshold=3
-ro.hardware.fp.fod.touch.ctl.version=2.0
 ro.hardware.fp.fod=true
+persist.vendor.sys.fp.expolevel=0x88
+persist.vendor.sys.fp.fod.location.X_Y=596,2758
+persist.vendor.sys.fp.fod.size.width_height=248,248
+ro.hardware.fp.fod.location=low
+ro.hardware.fp.fod.touch.ctl.version=2.0
+ro.hardware.fp.fod.lowlight.lux.threshold=3
+ro.hardware.fp.fod.lowlight.brightness.threshold=411
+ro.vendor.display.touch.idle.enable=true
+ro.vendor.display.fod_monitor_default_fps=120
 
 # FM
 vendor.hw.fm.init=0
