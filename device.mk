@@ -384,9 +384,8 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     CarrierConfigResCommon \
     XiaomiFrameworks \
-    SystemUIResCommon \
+    XiaomiSystemUI \
     SettingsResCommonXiaomi \
-    SystemUIResCommonSocrates \
     TelephonyResCommon \
     WifiResTarget
 
