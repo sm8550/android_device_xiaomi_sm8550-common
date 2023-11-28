@@ -385,6 +385,7 @@ ro.mediaserver.64b.enable=true
 sys.vendor.shutdown.waittime=500
 
 # NFC
+ro.nfc.port=I2C
 ro.vendor.nfc.disable.i2c=false
 ro.vendor.nfc.repair=1
 ro.vendor.nfc.dispatch_optim=1

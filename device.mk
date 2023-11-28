@@ -363,7 +363,16 @@ PRODUCT_COPY_FILES += \
 
 # NFC
 PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    NfcNci \
+    SecureElement \
+    Tag
+
+PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.2-service \
+    android.hardware.nfc@1.2-service-st \
     android.hardware.nfc@1.2.vendor \
+    android.hardware.secure_element@1.2.vendor \
     libchrome.vendor
 
 PRODUCT_COPY_FILES += \
@@ -445,10 +454,6 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd-odm.rc \
     ueventd.qcom.rc
-
-# Secure element
-PRODUCT_PACKAGES += \
-    android.hardware.secure_element@1.2.vendor 
 
 # Sensors
 PRODUCT_PACKAGES += \
