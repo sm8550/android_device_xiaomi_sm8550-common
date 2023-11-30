@@ -4,3 +4,11 @@ allow system_server vendor_hal_micharge_xiaomi_default:binder { call transfer };
 allow system_server vendor_hal_sensorcommunicate_default:binder { call transfer };
 allow system_server hal_touchfeature_xiaomi_default:process signal;
 get_prop(system_server, vendor_displayfeature_prop)
+
+allow system_server hal_slaservice_hwservice:hwservice_manager find;
+allow system_server hal_slaservice_qti:binder call;
+allow system_server vendor_hal_fingerprint_hwservice_xiaomi:hwservice_manager { add find };
+allow system_server vendor_dtool:binder { call transfer };
+allow system_server vendor_dtool:binder transfer;
+allow system_server vendor_dtool:fd *;
+get_prop(system_server, vendor_fp_prop)
