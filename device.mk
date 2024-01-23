@@ -62,7 +62,7 @@ PRODUCT_PACKAGES += \
 
 # APN
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/etc/apns-conf.xml:/system/etc/apns-conf.xml
+    $(LOCAL_PATH)/configs/apns-conf.xml:/product/etc/apns-conf.xml
 
 # Atrace
 PRODUCT_PACKAGES += \
