@@ -48,4 +48,7 @@
 
     <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
     <string name="config_oemFastChargerStatusPath" translatable="false">/sys/class/qcom-battery/fastchg_mode</string>
+
+    <!-- Support decoding of GSM 8 bit encoded SMS-->
+    <bool translatable="false" name="config_sms_decode_gsm_8bit_data">true</bool>
 </resources>
