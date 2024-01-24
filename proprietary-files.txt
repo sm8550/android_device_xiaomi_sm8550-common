@@ -1824,9 +1824,6 @@ vendor/lib64/vendor.qti.hardware.trustedui@1.1.so
 vendor/lib64/vendor.qti.hardware.trustedui@1.2.so
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
-# Trustzone
-vendor/app/TrustZoneAccessService/TrustZoneAccessService.apk
-
 # USB
 vendor/bin/init.qcom.usb.sh
 vendor/etc/init/hw/init.qcom.usb.rc
@@ -2028,14 +2025,9 @@ vendor/firmware/vpu30_4v_unsigned.mbn
 vendor/firmware/vpu33_4v.mbn
 vendor/firmware/vpu33_4v_unsigned.mbn
 
-# Widevine DRM
-vendor/bin/hw/android.hardware.drm-service.widevine
-vendor/etc/init/android.hardware.drm-service.widevine.rc
-vendor/etc/vintf/manifest/manifest_android.hardware.drm-service.widevine.xml
+# Oem Crypto
 vendor/lib/liboemcrypto.so
-vendor/lib/libtrustedapploader.so
 vendor/lib64/liboemcrypto.so
-vendor/lib64/libtrustedapploader.so
 
 # WiFi
 vendor/bin/cnss-daemon
