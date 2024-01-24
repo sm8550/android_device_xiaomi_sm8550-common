@@ -1598,10 +1598,6 @@ vendor/lib64/libqvrservice_ov9282_hvx_tuning.so
 vendor/lib64/libqvrservice_v4l_ov7251_hvx_tuning.so
 vendor/lib64/libtracker_6dof_impl.so
 
-# QXR
-vendor/etc/vintf/manifest/vendor.qti.hardware.qxr-service.xml
-vendor/lib64/vendor.qti.hardware.qxr-V1-ndk.so
-
 # SMC Invoke
 vendor/etc/ssg/ta_config.json
 vendor/lib64/libminkdescriptor.so
