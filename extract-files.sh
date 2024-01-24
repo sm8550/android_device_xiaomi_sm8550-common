@@ -64,6 +64,12 @@ function blob_fixup() {
         odm/etc/camera/night_motiontuning.xml|odm/etc/camera/night_motiontuning.xml)
             sed -i 's/xml=version/xml version/g' "${2}"
             ;;
+        product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml|product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml)
+            sed -i 's/version="2.0"/version="1.0"/g' "${2}"
+            ;;
+        product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml|product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml)
+            sed -i 's/version="2.0"/version="1.0"/g' "${2}"
+            ;;
         odm/lib64/libxmi_high_dynamic_range_cdsp.so)
             llvm-strip --strip-debug  "${2}"
             ;;
