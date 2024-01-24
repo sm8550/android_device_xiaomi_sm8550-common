@@ -8,6 +8,9 @@ type vendor_sysfs_qcom_battery, fs_type, sysfs_type;
 # Camera
 type camera_persist_file, file_type, mlstrustedobject, vendor_persist_type;
 
+# Consumer IR
+type ir_spi_device, dev_type;
+
 # Diag
 type vendor_modem_data_file, data_file_type, file_type;
 
@@ -33,6 +36,7 @@ type sla_data_file, data_file_type, file_type;
 type slad_socket, file_type;
 
 # Thermal
+type sys_thermal_torch_real_level, fs_type, sysfs_type;
 type sys_thermal_wifi_limit, fs_type, sysfs_type;
 type sys_thermal_flash_state, fs_type, sysfs_type;
 type thermal_data_file, data_file_type, file_type;
