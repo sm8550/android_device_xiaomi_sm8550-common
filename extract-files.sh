@@ -32,20 +32,19 @@ SECTION=
 
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
-    -n | --no-cleanup)
-        CLEAN_VENDOR=false
-        ;;
-    -k | --kang)
-        KANG="--kang"
-        ;;
-    -s | --section)
-        SECTION="${2}"
-        shift
-        CLEAN_VENDOR=false
-        ;;
-    *)
-        SRC="${1}"
-        ;;
+        -n | --no-cleanup )
+                CLEAN_VENDOR=false
+                ;;
+        -k | --kang )
+                KANG="--kang"
+                ;;
+        -s | --section )
+                SECTION="${2}"; shift
+                CLEAN_VENDOR=false
+                ;;
+        * )
+                SRC="${1}"
+                ;;
     esac
     shift
 done
@@ -74,9 +73,10 @@ function blob_fixup() {
     esac
 }
 
-# Initialize the helper
+# Initialize the helper for device
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+extract "${MY_DIR}/proprietary-files-qc.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 
 "${MY_DIR}/setup-makefiles.sh"

@@ -28,8 +28,10 @@ source "${HELPER}"
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
 
 # Warning headers and guards
-write_headers
+write_headers "socrates"
 
+# The standard blobs
+write_makefiles "${MY_DIR}/proprietary-files-qc.txt" true
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
 # Finish
