@@ -282,15 +282,6 @@ vendor/etc/default_volume_tables.xml
 vendor/etc/r_submix_audio_policy_configuration.xml
 vendor/etc/usb_audio_policy_configuration.xml
 
-# Audio (Dolby)
-vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
-vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
-vendor/etc/vintf/manifest/vendor.dolby.hardware.dms.xml
-vendor/lib64/libdapparamstorage.so
-vendor/lib64/libdlbdsservice.so
-vendor/lib64/vendor.dolby.hardware.dms@2.0.so
-vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
-
 # Batterysecret
 vendor/bin/batterysecret
 vendor/etc/init/hw/init.batterysecret.rc
