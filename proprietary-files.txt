@@ -1429,7 +1429,7 @@ odm/lib64/libgf_hal.so
 odm/lib64/vendor.xiaomi.hardware.fx.tunnel@1.0.so
 vendor/bin/hw/vendor.xiaomi.hardware.dtool@1.0-service
 vendor/etc/init/vendor.xiaomi.hardware.dtool@1.0-service.rc
-vendor/etc/vintf/manifest/fod.xml
+-vendor/etc/vintf/manifest/fod.xml
 vendor/lib64/com.fingerprints.extension@3.0.so
 vendor/lib64/vendor.xiaomi.hardware.dtool@1.0.so
 vendor/lib64/vendor.xiaomi.hardware.fingerprintextension@1.0.so
