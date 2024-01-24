@@ -375,9 +375,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_PACKAGES += \
     CarrierConfigResCommon \
-    FrameworksResTarget \
-    FrameworksResTargetSocrates \
-    FrameworksResTargetXiaomi \
+    XiaomiFrameworks \
     SystemUIResCommon \
     SettingsResCommonXiaomi \
     SystemUIResCommonSocrates \
