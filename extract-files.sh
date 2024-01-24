@@ -76,6 +76,18 @@ function blob_fixup() {
         odm/etc/init/vendor.xiaomi.sensor.citsensorservice@2.0-service.rc)
             sed -i 's/group system input/group system input\n    task_profiles ServiceCapacityLow/' "${2}"
             ;;
+        odm/lib64/libTrueSight.so)
+            split --bytes=20M -d "${2}" "${2}".part
+            ;;
+        vendor/bin/COSNet_spatial_8bit_quantized.serialized.bin)
+            split --bytes=20M -d "${2}" "${2}".part
+            ;;
+        vendor/lib/rfsa/adsp/libvpt_action_recognition.so)
+            split --bytes=20M -d "${2}" "${2}".part
+            ;;
+        vendor/lib64/libCOSNet_spatial_qnn_quantized.so)
+            split --bytes=20M -d "${2}" "${2}".part
+            ;;
     esac
 }
 
