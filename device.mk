@@ -22,6 +22,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/socrates/socrates-vendor.mk)
 
+TARGET_BOARD_PLATFORM := kalama
+
 # SHIPPING API
 BOARD_API_LEVEL := 33
 BOARD_SHIPPING_API_LEVEL := $(BOARD_API_LEVEL)
