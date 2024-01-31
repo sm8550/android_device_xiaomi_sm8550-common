@@ -2,5 +2,17 @@
   {
     "repository": "android_hardware_xiaomi",
     "target_path": "hardware/xiaomi"
+  },
+  {
+    "repository": "android_kernel_xiaomi_socrates",
+    "target_path": "kernel/xiaomi/socrates"
+  },
+  {
+    "repository": "android_kernel_xiaomi_socrates-devicetrees",
+    "target_path": "kernel/xiaomi/socrates-devicetrees"
+  },
+  {
+    "repository": "android_kernel_xiaomi_socrates-modules",
+    "target_path": "kernel/xiaomi/socrates-modules"
   }
 ]
