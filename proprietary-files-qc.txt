@@ -3,35 +3,34 @@
 # ANT+
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 
-# Bluetooth
-vendor/bin/hw/android.hardware.bluetooth@1.1-service-qti
-vendor/etc/init/android.hardware.bluetooth@1.1-service-qti.rc
-vendor/etc/vintf/manifest/bluetooth_audio.xml
-vendor/etc/vintf/manifest/bttpi-saidl.xml
-vendor/lib64/btaudio_offload_if.so
-vendor/lib64/hw/android.hardware.bluetooth.audio-impl-qti.so
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
-vendor/lib64/hw/android.hardware.bluetooth@1.1-impl-qti.so
-vendor/lib64/hw/audio.bluetooth_qti.default.so
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.1-impl.so
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so
-vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
-vendor/lib64/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so
-vendor/lib64/hw/vendor.qti.hardware.bttpi-impl.so
-vendor/lib64/lib_bt_aptx.so
-vendor/lib64/lib_bt_ble.so
-vendor/lib64/lib_bt_bundle.so
-vendor/lib64/lib_bt_lhdc.so
-vendor/lib64/libbluetooth_audio_session_aidl_qti.so
-vendor/lib64/libbluetooth_audio_session_aidl.so
-vendor/lib64/libbluetooth_audio_session_qti_2_1.so
-vendor/lib64/libbluetooth_audio_session_qti.so
-vendor/lib64/libbt-hidlclient.so
-vendor/lib64/libbtnv.so
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
-vendor/lib64/vendor.qti.hardware.bttpi-V2-ndk.so
+# Bluetooth - from V816.0.5.0.UMKCNXM
+vendor/bin/hw/android.hardware.bluetooth@1.1-service-qti|8b5082a208b4d3a181c1c3b216f790d7d61463b8
+vendor/etc/init/android.hardware.bluetooth@1.1-service-qti.rc|809312d943f5194c464f4edcdf172c09d0be0b0b
+vendor/lib64/btaudio_offload_if.so|6c7e3297dc7e0aaf8aab839ffa563e5de51b7e12
+vendor/lib64/hw/android.hardware.bluetooth.audio-impl-qti.so|968340d80c7671fff324218e1ca2a2b83e4bed81
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|c1cb04a881d88dcd547aafa68b65ce5904a8d887
+vendor/lib64/hw/android.hardware.bluetooth@1.1-impl-qti.so|589f3e5acaa24397f75d676bc233e94124eeac39
+vendor/lib64/hw/audio.bluetooth_qti.default.so|230305366606bb8ab16b01dd55d75c7ad4a204e5
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so|a4d96896b60af5ff0090c53e48a2ededaf649ff2
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.1-impl.so|990aeca4b5d35c941a08be8f667ccd532f921e0c
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so|923c614eed5f4bdcc939e392f334ddf5d347e0d0
+vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so|130053576213077e476ab217f097ff283b70f8c8
+vendor/lib64/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so|cd746e543449aa5294424b8b91f2641b9e80130c
+vendor/lib64/hw/vendor.qti.hardware.bttpi-impl.so|da97610f7a3e55a048f13db9935633c87681bc99
+vendor/lib64/lib_bt_aptx.so|9fcf4b5e280ae8b556ceac300b90a9a7ccd14658
+vendor/lib64/lib_bt_ble.so|f45903ea3e4de670980daa4d0440dd73ea20a76e
+vendor/lib64/lib_bt_bundle.so|fae56894e2a391a0d3dfb23ae1a4d2f0582ff1fd
+vendor/lib64/lib_bt_lhdc.so|069c3deed98932c4fd00737455dd3ceadbb66981
+vendor/lib64/libbluetooth_audio_session_aidl_qti.so|24ad428cb0af08f2b5913f6b78cfcad3081be1d5
+vendor/lib64/libbluetooth_audio_session_qti.so|c8c9c0b2477b489974eb402da4950fc355bf869e
+vendor/lib64/libbluetooth_audio_session_qti_2_1.so|9a924309211eaad9e3c16e1a9998051f98987080
+vendor/lib64/libbt-hidlclient.so|812c806bee5a50793b591e0fb2ccb7337d0eaf80
+vendor/lib64/libbtnv.so|7ffea4b6731817ad5cc3b9ee88bc401fb2584bce
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|f728d4f263a3ca7ef7667c353dc7e83ccc0c575f
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|7ee9664bb04c6c871d0fad659a7b07e2ef5c3956
+vendor/lib64/vendor.qti.hardware.bttpi-V2-ndk.so|c21fa87018eb48b3d7861b8b417cfeafe33cd56f
+-vendor/etc/vintf/manifest/bluetooth_audio.xml|5cdd9a3c4fbd6cde75aa207af8f1bb0177eb8924
+-vendor/etc/vintf/manifest/bttpi-saidl.xml|d261b1bb5fdfae4f314515b122f6c20c667f09b0
 
 # CDSP
 vendor/bin/cdsprpcd
