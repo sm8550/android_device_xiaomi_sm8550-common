@@ -1,4 +1,5 @@
 android.hardware.bluetooth.audio-V2-ndk
+android.hardware.bluetooth.audio-V3-ndk
 android.hardware.camera.common-V1-ndk
 android.hardware.camera.device-V1-ndk
 android.hardware.camera.metadata-V1-ndk
