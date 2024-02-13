@@ -176,7 +176,7 @@ PRODUCT_COPY_FILES += \
 
 # Props
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.vendor.camera.privapp.list=org.lineageos.aperture,com.android.camera
+    persist.vendor.camera.privapp.list=org.codeaurora.snapcam,org.codeaurora.snap,org.lineageos.aperture,com.android.camera
 
 # Capabilityconfigstore
 PRODUCT_PACKAGES += \
