@@ -235,6 +235,45 @@ vendor/lib64/libxlog.so
 -vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.pal@1.0.so
 
+# Audio Configs - from V816.0.5.0.UMKCNXM
+odm/etc/audio/hrtf5c.bin|8bf76971487be92028b7908ef519521fe5faeffe
+odm/etc/audio/sku_kalama/mixer_paths_kalama_mtp.xml|8593010be4d0e511714cae4a5e219d607c760e44
+odm/etc/audio/sku_kalama/mixer_paths_overlay_dynamic.xml|0c0ff1d3aace49218d91c13b28601dce0b26e13f
+odm/etc/audio/sku_kalama/mixer_paths_overlay_static.xml|fbebc5b536ef0b3e9e8b6530aeb073f2cc5f452f
+odm/etc/audio/sku_kalama/resourcemanager_kalama_mtp.xml|8fd2f4b5c4b1b8ab2154b69cf2ace23b4187a1f4
+odm/etc/audio_policy_engine_configuration_mi.xml:odm/etc/audio_policy_engine_configuration.xml|ef0cdc9ac80ab1a14c279e3f73f8a2090f360bda
+odm/etc/audio_policy_engine_default_stream_volumes.xml|6a02168032d91dd0cc6e2d14bf5f3757441d1025
+odm/etc/audio_policy_engine_product_strategies.xml|57074da402535ad5ab160bbbe7a92ac3f012f954
+odm/etc/audio_policy_engine_stream_volumes.xml|d5d489b382132453f944a97927ddc9b981a54bea
+odm/etc/backend_conf.xml|72d74dce2f65642eef30fc1921a681f07f6bbc4c
+vendor/etc/a2dp_audio_policy_configuration.xml|0175e5dc38c0b95f2e44a62069e3a5656b6eb97c
+vendor/etc/audio/sku_kalama/audio_effects.conf|76e25a79062c6095d3082045a1173f92b16d5793
+vendor/etc/audio/sku_kalama/audio_effects.xml|9c4320c037fe92dc94007d02cabf8d3fe49d92c6
+vendor/etc/audio/sku_kalama/mixer_paths_kalama_cdp.xml|e1dc6a0acd8cfee56897ed0c9ef97fd3364e6b17
+vendor/etc/audio/sku_kalama/mixer_paths_kalama_cdp_wsa883x.xml|f487067276b0c9587dab3e6918e3e79e32283772
+vendor/etc/audio/sku_kalama/mixer_paths_kalama_grd.xml|a0b8bad69f59b36b6d9f367db8d45d4859439ba3
+vendor/etc/audio/sku_kalama/mixer_paths_kalama_mtp.xml|8593010be4d0e511714cae4a5e219d607c760e44
+vendor/etc/audio/sku_kalama/mixer_paths_kalama_qrd.xml|c600a351ca7c8b4f6fb215051a57b4762d205258
+vendor/etc/audio/sku_kalama/resourcemanager_kalama_cdp.xml|7453b32653dc1d083f0e5134f051a00e7a728628
+vendor/etc/audio/sku_kalama/resourcemanager_kalama_grd.xml|a5e4b7933afe69d6aa0c4cbbc0b723eedaf0ee60
+vendor/etc/audio/sku_kalama/resourcemanager_kalama_mtp.xml|d5ca414c05fff4266ab1d23c39c6e462f085f72c
+vendor/etc/audio/sku_kalama/resourcemanager_kalama_qrd.xml|14286295da3fd78e9656de9a2d715ac6af51e48e
+vendor/etc/audio_policy_configuration.xml|9925c263aa876672f4d1113bc5eae4a8c79b74cf
+vendor/etc/audio_policy_volumes.xml|82c8c27acff0972087b955770a1b621ee3951340
+vendor/etc/batching.conf|2cf9066e8477cf71add51969508eaa9bf0815108
+vendor/etc/bluetooth_qti_audio_policy_configuration.xml|2f35e7bfb9b3356647b75c7d4d6219716a8758f3
+vendor/etc/bluetooth_qti_hearing_aid_audio_policy_configuration.xml|1e3e692dbb4e7ee96b0a6c71ada2fc67689d015e
+vendor/etc/card-defs.xml|1609a74e5bb5a8ac538c0ac0021b70921cb80e28
+vendor/etc/default_volume_tables.xml|35722acb2dd36ed2a3850a66849c94b904813aa0
+vendor/etc/kvh2xml.xml|b3ef97f99411cc39674c8e128803ef91014170ef
+vendor/etc/media_codecs_c2_audio.xml|e9703824ba31c49c84f05bee7c171cef65c6e5dc
+vendor/etc/media_codecs_vendor_audio.xml|673adedd72050df52f848c300acd58be4a62ba60
+vendor/etc/microphone_characteristics.xml|881f175700b9032eec2e4c3afa6e491813bdd569
+vendor/etc/r_submix_audio_policy_configuration.xml|8140e8e1cfb8a51ce655bfa7b166845b594a9e6f
+vendor/etc/usb_audio_policy_configuration.xml|ff1a862db0102d8c6cae81e8de0060243df29bcd
+vendor/etc/usb_compositions.conf|27f40aac0a940c51b120d01c06f4523e106c34d4
+vendor/etc/usecaseKvManager.xml|f4fc6958356ede164b82f56953aa9f2057a49545
+
 # Audio firmware (Socrates)
 odm/firmware/B-cs35l41-dsp1-spk-cali.bin
 odm/firmware/B-cs35l41-dsp1-spk-prot.bin
@@ -265,22 +304,6 @@ vendor/lib64/soundfx/libswgamedap.so
 vendor/lib64/soundfx/libswspatializer.so
 vendor/lib64/soundfx/libswvqe.so
 vendor/lib64/soundfx/libvolumelistener.so
-
-# Audio configs
-system/etc/audio_effects.conf
-odm/etc/audio/hrtf5c.bin
-odm/etc/audio_policy_engine_configuration_mi.xml
-odm/etc/audio_policy_engine_default_stream_volumes.xml
-odm/etc/audio_policy_engine_product_strategies.xml
-odm/etc/audio_policy_engine_stream_volumes.xml
-vendor/etc/a2dp_audio_policy_configuration.xml
-vendor/etc/audio_policy_configuration.xml
-vendor/etc/audio_policy_volumes.xml
-vendor/etc/bluetooth_qti_audio_policy_configuration.xml
-vendor/etc/bluetooth_qti_hearing_aid_audio_policy_configuration.xml
-vendor/etc/default_volume_tables.xml
-vendor/etc/r_submix_audio_policy_configuration.xml
-vendor/etc/usb_audio_policy_configuration.xml
 
 # Batterysecret
 vendor/bin/batterysecret
