@@ -5,6 +5,7 @@ android.hardware.camera.metadata-V1-ndk
 android.hardware.camera.provider-V1-ndk
 android.hardware.common-V2-ndk_platform
 android.hardware.identity-V3-ndk_platform
+android.hardware.identity-V4-ndk
 android.hardware.gnss-V1-ndk_platform
 android.hardware.gnss-V2-ndk
 android.hardware.graphics.allocator-V1-ndk
