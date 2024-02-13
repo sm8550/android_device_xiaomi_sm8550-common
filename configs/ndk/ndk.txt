@@ -12,6 +12,7 @@ android.hardware.graphics.allocator-V1-ndk
 android.hardware.graphics.common-V3-ndk
 android.hardware.keymaster-V3-ndk_platform
 android.hardware.light-V1-ndk_platform
+android.hardware.light-V2-ndk
 android.hardware.memtrack-V1-ndk_platform
 android.hardware.radio-V1-ndk
 android.hardware.radio.config-V1-ndk
