@@ -42,3 +42,8 @@ TARGET_GAPPS_ARCH := arm64
 # Use gestures by default
 #PRODUCT_PRODUCT_PROPERTIES += \
 #    ro.boot.vendor.overlay.theme=com.android.internal.systemui.navbar.gestural
+
+# Eng build debugging
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.secure=0 \
+    ro.adb.secure=0
