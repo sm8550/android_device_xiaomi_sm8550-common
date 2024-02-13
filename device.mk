@@ -72,26 +72,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     audio.bluetooth.default \
-    audio.primary.kalama \
     audio.r_submix.default \
     audio.usb.default
-
-PRODUCT_PACKAGES += \
-    libalsautils \
-    libvolumelistener \
-    audioadsprpcd \
-    sound_trigger.primary.kalama \
-    libtinycompress \
-    libsndcardparser \
-    libqcomvoiceprocessing \
-    libqcomvisualizer \
-    libqcompostprocbundle \
-    libbatterylistener \
-    libagm_pcm_plugin \
-    libagm_mixer_plugin \
-    libagm_compress_plugin
-
-AUDIO_HAL_DIR := hardware/qcom-caf/sm8550/audio/primary-hal
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
