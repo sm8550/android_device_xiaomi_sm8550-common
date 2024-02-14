@@ -97,6 +97,9 @@ function blob_fixup() {
         vendor/bin/hw/android.hardware.security.keymint-service-qti | vendor/lib64/libqtikeymint.so)
             "${PATCHELF}" --add-needed android.hardware.security.rkp-V3-ndk.so "${2}"
             ;;
+        vendor/bin/hw/android.hardware.media.omx@1.0-service)
+            "${PATCHELF}" --add-needed "libshim.so" "${2}"
+            ;;
     esac
 }
 
