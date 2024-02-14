@@ -145,7 +145,9 @@ PRODUCT_COPY_FILES += \
 
 # Props
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.vendor.camera.privapp.list=org.codeaurora.snapcam,org.codeaurora.snap,org.lineageos.aperture,com.android.camera
+    persist.vendor.camera.privapp.list=org.codeaurora.snapcam,org.codeaurora.snap,org.lineageos.aperture \
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.xiaomi.runin,com.xiaomi.cameratest,com.xiaomi.factory.mmi \
+    vendor.camera.aux.packagelistext=com.xiaomi.factory.CameraTestItem
 
 # Capabilityconfigstore
 PRODUCT_PACKAGES += \
