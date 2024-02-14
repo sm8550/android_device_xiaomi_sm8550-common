@@ -29,9 +29,6 @@
         M8,0C3.6,0,0,3.6,0,8
     </string>
 
-    <!-- The radius of the enrollment progress bar, in dp -->
-    <integer name="config_udfpsEnrollProgressBar" translatable="false">100</integer>
-
     <!-- Location on the screen of the center of the physical power button. -->
     <dimen name="physical_power_button_center_screen_location_y">620.0px</dimen>
 

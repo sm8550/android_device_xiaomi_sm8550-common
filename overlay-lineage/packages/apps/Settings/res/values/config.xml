@@ -45,4 +45,7 @@
         <item>267</item>
     </integer-array>
     
+    <!-- The radius of the enrollment progress bar, in dp -->
+    <integer name="config_udfpsEnrollProgressBar" translatable="false">100</integer>
+    
 </resources>
