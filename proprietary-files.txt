@@ -627,6 +627,7 @@ vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 vendor/lib64/vendor.xiaomi.hardware.bgservice@1.0-impl.so
 vendor/lib64/vendor.xiaomi.hardware.bgservice@1.0.so
 vendor/lib64/vendor.xiaomi.hardware.quickcamera@1.0.so
+vendor/bin/COSNet_spatial_8bit_quantized.serialized.bin
 
 # Camera (Socrates)
 odm/etc/camera/CFR_para_UW_V01.bin
