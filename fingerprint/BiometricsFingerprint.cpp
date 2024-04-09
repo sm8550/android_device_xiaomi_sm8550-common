@@ -27,7 +27,7 @@
 #define LOCAL_HBM_OFF_TO_NORMAL 0
 #define LOCAL_HBM_NORMAL_WHITE_1000NIT 1
 
-#define CMD_TOUCH_FOD_ENABLE 10
+#define THP_FOD_DOWNUP_CTL 1001
 
 namespace android {
 namespace hardware {
@@ -131,12 +131,12 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t /*sensorId*/) {
 }
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, float) {
-    mTouchFeature->setTouchMode(0, CMD_TOUCH_FOD_ENABLE, 1);
+    mTouchFeature->setTouchMode(0, THP_FOD_DOWNUP_CTL, 1);
     return Void();
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
-    mTouchFeature->setTouchMode(0, CMD_TOUCH_FOD_ENABLE, 0);
+    mTouchFeature->setTouchMode(0, THP_FOD_DOWNUP_CTL, 0);
     return Void();
 }
 
@@ -156,7 +156,7 @@ Return<void> BiometricsFingerprint::onAcquired(uint64_t deviceId, FingerprintAcq
     std::lock_guard<std::mutex> lock(mClientCallbackMutex);
 
     if (acquiredInfo != FingerprintAcquiredInfo::ACQUIRED_VENDOR) {
-        mTouchFeature->setTouchMode(0, CMD_TOUCH_FOD_ENABLE, 0);
+        mTouchFeature->setTouchMode(0, THP_FOD_DOWNUP_CTL, 0);
     }
 
     return mClientCallback->onAcquired(deviceId, acquiredInfo, vendorCode);
@@ -198,7 +198,7 @@ void BiometricsFingerprint::setFODPressEnabled(bool enabled) {
         mExtension->extCmd(CMD_FOD_LHBM_STATUS, LOCAL_HBM_NORMAL_WHITE_1000NIT);
     } else {
         mExtension->extCmd(CMD_FOD_LHBM_STATUS, LOCAL_HBM_OFF_TO_NORMAL);
-        mTouchFeature->setTouchMode(0, CMD_TOUCH_FOD_ENABLE, 0);
+        mTouchFeature->setTouchMode(0, THP_FOD_DOWNUP_CTL, 0);
     }
 }
 

@@ -61,6 +61,7 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    android.hardware.bluetooth.audio-impl \
     android.hardware.bluetooth@1.1.vendor \
     android.hardware.bluetooth.audio@2.1.vendor \
     android.hardware.bluetooth.audio@2.0-impl \
@@ -249,10 +250,23 @@ PRODUCT_PACKAGES += \
 # Overlay
 PRODUCT_PACKAGES += \
     FrameworkResOverlaySocrates \
-    SystemUIOverlaySocrates
+    SystemUIOverlaySocrates \
+    CarrierConfigResCommon \
+    XiaomiFrameworks \
+    XiaomiSystemUI \
+    SettingsResCommonXiaomi \
+    TelephonyResCommon \
+    WifiResTarget \
+    SocratesWifiOverlay \
+    TetheringOverlay
+
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage
 
 # Power
 PRODUCT_PACKAGES += \
+    android.hardware.power-service-qti \
     android.hardware.power@1.2.vendor \
     android.hardware.power-V3-ndk.vendor \
     android.hardware.power-V4-ndk.vendor \
@@ -264,6 +278,7 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-lite.vendor \
     libprotobuf-cpp-full-3.9.1-vendorcompat \
     libprotobuf-cpp-lite-3.9.1-vendorcompat
+
 # PSI
 PRODUCT_PACKAGES += \
     libpsi
@@ -321,7 +336,8 @@ PRODUCT_SHIPPING_API_LEVEL := 33
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    hardware/xiaomi
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -396,3 +412,16 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.wifi.supplicant-V1-ndk.vendor
+
+# WiFi
+PRODUCT_PACKAGES += \
+    android.hardware.wifi.hostapd@1.0.vendor
+
+# WiFi
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.wifi.aware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.aware.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
+    frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \
+    frameworks/native/data/etc/android.hardware.wifi.rtt.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.rtt.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml
