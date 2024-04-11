@@ -37,7 +37,7 @@ FORCE_OTA := true
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_USES_BLUR := true
 EXTRA_UDFPS_ANIMATIONS := true
-WITH_GMS=true
+WITH_GMS=false
 TARGET_GAPPS_ARCH := arm64
 
 # Use gestures by default
@@ -52,5 +52,4 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Prebuilt packages
 PRODUCT_PACKAGES += \
     RemovePackages \
-    GCamGo \
     Gramophone
