@@ -52,4 +52,5 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Prebuilt packages
 PRODUCT_PACKAGES += \
     RemovePackages \
-    GCamGo
+    GCamGo \
+    Gramophone
