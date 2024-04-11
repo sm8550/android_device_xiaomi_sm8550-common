@@ -367,6 +367,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0.vendor
 
+# Touch
+PRODUCT_PACKAGES += \
+    vendor.lineage.touch@1.0-service.socrates
+
 # TrustedUI
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.systemhelper@1.0.vendor

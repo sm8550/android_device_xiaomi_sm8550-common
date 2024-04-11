@@ -41,6 +41,9 @@
 /dev/xiaomi-touch u:object_r:touchfeature_device:s0
 /sys/devices/virtual/touch/touch_dev(/.*)? u:object_r:sysfs_touch_dev:s0
 
+# Touch
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.socrates u:object_r:hal_lineage_touch_default_exec:s0
+
 # Touchscreen
 /sys/devices/platform/goodix_ts.0(/.*)? u:object_r:sysfs_goodix_touch:s0
 
