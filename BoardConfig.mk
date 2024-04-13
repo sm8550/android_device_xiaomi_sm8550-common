@@ -20,7 +20,27 @@ AB_OTA_PARTITIONS := \
     vbmeta_system \
     vendor \
     vendor_boot \
-    vendor_dlkm
+    vendor_dlkm \
+    abl \
+    aop \
+    aop_config \
+    bluetooth \
+    cpucp \
+    devcfg \
+    dsp \
+    featenabler \
+    hyp \
+    imagefv \
+    keymaster \
+    modem \
+    qupfw \
+    shrm \
+    tz \
+    uefi \
+    uefisecapp \
+    xbl \
+    xbl_config \
+    xbl_ramdump
 
 # API level
 BOARD_API_LEVEL := 33

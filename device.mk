@@ -82,6 +82,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     libcamera2ndk_vendor \
+    android.hardware.camera.provider@2.4 \
     android.hardware.camera.provider@2.7.vendor \
     android.hardware.camera.common-V1-ndk.vendor \
     android.hardware.camera.device-V1-ndk.vendor \
@@ -270,6 +271,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
+    android.hardware.power.stats@1.0 \
     android.hardware.power@1.2.vendor \
     android.hardware.power-V3-ndk.vendor \
     android.hardware.power-V4-ndk.vendor \
@@ -328,7 +330,9 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors-service.multihal \
     sensors.dynamic_sensor_hal \
     libsensorndkbridge \
-    android.frameworks.sensorservice@1.0.vendor
+    android.frameworks.sensorservice@1.0 \
+    android.frameworks.sensorservice@1.0.vendor \
+    android.frameworks.stats@1.0
 
 # ServiceTracker
 PRODUCT_PACKAGES += \

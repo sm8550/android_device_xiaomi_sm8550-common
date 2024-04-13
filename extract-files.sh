@@ -67,6 +67,9 @@ function blob_fixup() {
         odm/lib64/libmt@1.3.so)
             "${PATCHELF}" --replace-needed "libcrypto.so" "libcrypto-v33.so" "${2}"
             ;;
+        vendor/bin/COSNet_spatial_8bit_quantized.serialized.bin | vendor/lib/rfsa/adsp/libvpt_action_recognition.so | odm/lib64/libxmi_high_dynamic_range_cdsp.so)
+            split --bytes=49M -d "${2}" "${2}".part
+            ;;
     esac
 }
 
