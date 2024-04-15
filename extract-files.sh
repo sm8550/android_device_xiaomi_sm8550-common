@@ -87,4 +87,7 @@ if [ -z "${SECTION}" ]; then
     extract_firmware "${MY_DIR}/proprietary-firmware.txt" "${SRC}"
 fi
 
+split --bytes=49MB ${ANDROID_ROOT}/vendor/xiaomi/socrates/radio/modem.img ${ANDROID_ROOT}/vendor/xiaomi/socrates/radio/modem.img.part
+split --bytes=49MB ${ANDROID_ROOT}/vendor/xiaomi/socrates/radio/dsp.img ${ANDROID_ROOT}/vendor/xiaomi/socrates/radio/dsp.img.part
+
 "${MY_DIR}/setup-makefiles.sh"
