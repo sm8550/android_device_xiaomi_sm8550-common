@@ -2,9 +2,12 @@ service touch_report /odm/bin/touch_report
     disabled
     override
 
-# Charging
 on boot
+    # Charging
     chown system system /sys/class/power_supply/battery/input_suspend
     chown system system /sys/class/qcom-battery/input_suspend
     chmod 0660 /sys/class/power_supply/battery/input_suspend
     chmod 0660 /sys/class/qcom-battery/input_suspend
+
+    # DT2W
+    chown system system /sys/devices/platform/goodix_ts.0/double_tap_enable

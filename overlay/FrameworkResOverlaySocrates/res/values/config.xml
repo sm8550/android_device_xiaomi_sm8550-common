@@ -357,4 +357,7 @@
     
     <!-- Support decoding of GSM 8 bit encoded SMS-->
     <bool translatable="false" name="config_sms_decode_gsm_8bit_data">true</bool>
+
+    <!-- Whether device supports double tap to wake -->
+    <bool name="config_supportDoubleTapWake">true</bool>
 </resources>
