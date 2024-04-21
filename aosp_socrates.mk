@@ -11,6 +11,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit common AOSP configurations
 $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
+# Miui Camera
+$(call inherit-product, vendor/xiaomi/socrates-camera/miuicamera.mk)
+
 # Inherit device configurations
 $(call inherit-product, device/xiaomi/socrates/device.mk)
 
