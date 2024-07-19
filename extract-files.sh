@@ -76,6 +76,9 @@ function blob_fixup() {
         vendor/etc/seccomp_policy/qwesd@2.0.policy)
             echo "pipe2: 1" >> "${2}"
             ;;
+        vendor/bin/COSNet_spatial_8bit_quantized.serialized.bin | vendor/lib/rfsa/adsp/libvpt_action_recognition.so | odm/lib64/libxmi_high_dynamic_range_cdsp.so)
+            split --bytes=49M -d "${2}" "${2}".part
+            ;;
     esac
 }
 
@@ -94,5 +97,8 @@ fi
 if [ -z "${SECTION}" ]; then
     extract_firmware "${MY_DIR}/proprietary-firmware.txt" "${SRC}"
 fi
+
+split --bytes=49MB ${ANDROID_ROOT}/vendor/xiaomi/socrates/radio/modem.img ${ANDROID_ROOT}/vendor/xiaomi/socrates/radio/modem.img.part
+split --bytes=49MB ${ANDROID_ROOT}/vendor/xiaomi/socrates/radio/dsp.img ${ANDROID_ROOT}/vendor/xiaomi/socrates/radio/dsp.img.part
 
 "${MY_DIR}/setup-makefiles.sh"

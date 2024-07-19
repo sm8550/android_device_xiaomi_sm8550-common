@@ -57,8 +57,7 @@ PRODUCT_PACKAGES += \
 
 # Automotive
 PRODUCT_PACKAGES += \
-    android.hardware.automotive.vehicle@2.0-manager-lib \
-    android.automotive.watchdog-V2-ndk.vendor
+    android.hardware.automotive.vehicle@2.0-manager-lib
 
 # ANT
 PRODUCT_PACKAGES += \
@@ -74,11 +73,10 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    android.hardware.bluetooth.audio-impl \
     android.hardware.bluetooth@1.1.vendor \
     android.hardware.bluetooth.audio@2.1.vendor \
     android.hardware.bluetooth.audio@2.0-impl \
-    android.hardware.bluetooth.audio-V2-ndk.vendor \
-    vendor.qti.hardware.bluetooth.audio-V1-ndk.vendor \
     vendor.qti.hardware.bluetooth_audio@2.1.vendor \
     vendor.qti.hardware.btconfigstore@1.0.vendor \
     vendor.qti.hardware.btconfigstore@2.0.vendor \
@@ -95,9 +93,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcamera2ndk_vendor \
     android.hardware.camera.provider@2.7.vendor \
-    android.hardware.camera.common-V1-ndk.vendor \
-    android.hardware.camera.device-V1-ndk.vendor \
-    android.hardware.camera.provider-V1-ndk.vendor \
     libexif.vendor \
     libjpeg.vendor \
     liblz4.vendor
@@ -177,10 +172,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     gralloc.default
 
-# GNSS
-PRODUCT_PACKAGES += \
-    android.hardware.gnss-V2-ndk.vendor
-
 # GUI
 PRODUCT_PACKAGES += \
     libgui_vendor
@@ -188,18 +179,13 @@ PRODUCT_PACKAGES += \
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
-    android.hardware.health@2.1.vendor \
-    android.hardware.health-V1-ndk.vendor
+    android.hardware.health@2.1.vendor
 
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.memory.block@1.0.vendor \
     libhwbinder.vendor \
     libhidltransport.vendor
-
-# Identity
-PRODUCT_PACKAGES += \
-    android.hardware.identity-V4-ndk.vendor
 
 # Init
 PRODUCT_COPY_FILES += \
@@ -236,10 +222,6 @@ PRODUCT_PACKAGES += \
 # Libsqlite
 PRODUCT_PACKAGES += \
     libsqlite.vendor
-
-# Light
-PRODUCT_PACKAGES += \
-    android.hardware.light-V2-ndk.vendor
 
 # Media
 PRODUCT_PACKAGES += \
@@ -280,12 +262,25 @@ PRODUCT_PACKAGES += \
     CarrierConfigOverlaySocrates \
     FrameworkResOverlaySocrates \
     SystemUIOverlaySocrates \
+    CarrierConfigResCommon \
+    XiaomiFrameworks \
+    XiaomiSystemUI \
+    SettingsResCommonXiaomi \
+    TelephonyResCommon \
+    WifiResTarget \
+    SocratesWifiOverlay \
+    TetheringOverlay \
     SettingsOverlaySocrates \
     TelephonyOverlaySocrates
+
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage
 
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
+    android.hardware.power.stats@1.0 \
     android.hardware.power@1.2.vendor \
     vendor.qti.hardware.perf@2.3.vendor
 
@@ -295,6 +290,7 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-lite.vendor \
     libprotobuf-cpp-full-3.9.1-vendorcompat \
     libprotobuf-cpp-lite-3.9.1-vendorcompat
+
 # PSI
 PRODUCT_PACKAGES += \
     libpsi
@@ -304,14 +300,6 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0.vendor \
     android.hardware.radio@1.6.vendor \
     android.hardware.radio.config@1.3.vendor \
-    android.hardware.radio.config-V1-ndk.vendor \
-    android.hardware.radio-V1-ndk.vendor \
-    android.hardware.radio.sim-V1-ndk.vendor \
-    android.hardware.radio.messaging-V1-ndk.vendor \
-    android.hardware.radio.modem-V1-ndk.vendor \
-    android.hardware.radio.network-V1-ndk.vendor \
-    android.hardware.radio.voice-V1-ndk.vendor \
-    android.hardware.radio.data-V1-ndk.vendor \
     libril
 
 # RenderScript
@@ -327,12 +315,6 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor \
     android.hardware.keymaster@3.0.vendor \
     android.hardware.keymaster@4.1.vendor \
-    android.hardware.security.keymint-V1-ndk.vendor \
-    android.hardware.security.keymint-V2-ndk.vendor \
-    android.hardware.security.rkp-V1-ndk.vendor \
-    android.hardware.security.rkp-V3-ndk.vendor \
-    android.hardware.security.sharedsecret-V1-ndk.vendor \
-    android.system.keystore2-V1-ndk.vendor \
     android.hardware.hardware_keystore.xml \
     libkeymaster_messages.vendor
 
@@ -341,7 +323,9 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors-service.multihal \
     sensors.dynamic_sensor_hal \
     libsensorndkbridge \
-    android.frameworks.sensorservice@1.0.vendor
+    android.frameworks.sensorservice@1.0 \
+    android.frameworks.sensorservice@1.0.vendor \
+    android.frameworks.stats@1.0
 
 # ServiceTracker
 PRODUCT_PACKAGES += \
@@ -381,7 +365,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.qti-v2
+    android.hardware.thermal@2.0.vendor
 
 # TrustedUI
 PRODUCT_PACKAGES += \
@@ -427,7 +411,6 @@ PRODUCT_PACKAGES += \
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
-    android.hardware.wifi.hostapd-V1-ndk.vendor \
     wpa_cli \
     wpa_supplicant \
     wpa_supplicant.conf \
@@ -441,8 +424,9 @@ PRODUCT_PACKAGES += \
     libkeystore-wifi-hidl \
     libwifi-hal
 
+# WiFi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi.supplicant-V1-ndk.vendor
+    android.hardware.wifi.hostapd@1.0.vendor
 
 # WiFi Display
 PRODUCT_PACKAGES += \
