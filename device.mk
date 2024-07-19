@@ -244,6 +244,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     dolbycodec_shim
 
+# NDK
+$(foreach target, $(shell cat $(LOCAL_PATH)/configs/ndk/ndk.txt), $(eval PRODUCT_PACKAGES += $(target).vendor))
+
 # Network
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor \
