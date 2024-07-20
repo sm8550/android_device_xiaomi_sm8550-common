@@ -265,14 +265,11 @@ PRODUCT_PACKAGES += \
     CarrierConfigOverlaySocrates \
     FrameworkResOverlaySocrates \
     SystemUIOverlaySocrates \
-    CarrierConfigResCommon \
     XiaomiFrameworks \
-    XiaomiSystemUI \
     SettingsResCommonXiaomi \
-    TelephonyResCommon \
     WifiResTarget \
     SocratesWifiOverlay \
-    TetheringOverlay \
+    TetheringConfigOverlay \
     SettingsOverlaySocrates \
     TelephonyOverlaySocrates
 
